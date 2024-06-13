@@ -1,0 +1,65 @@
+PAGING
+symptom: test debug window continuously restarts.
+error: appears that definition and assignment of directory and table entries have issues
+fix: changed from using functions to assign value to using union attributes to assign
+difficulty: 60 min
+
+RTC:
+symptom: OS kept restarting when entering
+error: no critical section in the rtc handler
+fix: add sti() at the start of the rtc handler and cli() at the end.
+difficulty: 30 min
+
+IDT:
+1.symptom: OS kept restarting when entering
+error: inversed idt index for rtc and keyboard
+fix: exchange the idt entry index when SET_IDT_ENTRY in idt.c.
+difficulty: 60 min
+
+2.symptom: can't type in the shell
+error: set the reversed3 field of systemcall interrupt descriptor to 0 (which means interrupt gate)
+fix: set the reversed3 field of systemcall interrupt descriptor to 1 (which means trap gate)
+difficulty: 60 min
+
+
+KEYBOARD:
+symptom: the first character on the screen does not show up
+error: didn't replace the old putc in printf to yyn_putc_pro
+fix: replace it with yyn_putc_pro
+difficulty: 25min
+
+I8259:
+symptom: rtc interrupt error
+error: when sending eoi, have not minus 8 if the interrupt is from slave pic
+fix: minus 8 if irq_num is greatter than 7
+difficulty: 30min
+
+TERMINAL:
+symptom: a weird character occures after terminal_write printf
+error: before terminal read, set the clear buffer to '\0' instead of 0
+fix: memset(buf, 0, buf_size+1)
+difficulty: 40min
+
+FILESYSTEM:
+symptom: smilyface at the end of verylargetext filename when performing read_directory()
+error: printing more than 32 characters, filenames do not need to be Null ended
+fix: specifically limit the number of characters printed. Added a check for more than 32 characters
+difficulty: 20min
+
+SYSTEM CALLS (READ, OPEN):
+symptom: unable to compile due to complex struct web
+error: filesystem.h object "operations" included another object which itself included "operations" object (infinite loop)
+fix: get current pcb in the smaller level read/open functions so the smaller level functions can take in fd index
+     instead of fd object as an argument. Before, the operations object would have function pointers that would take in 
+     fd objects which had an operations struct argument (infinite loop)
+     
+Vidmap: 
+symptom: page fault exception
+error: error in calculating PTE value. Forgot to mask out high 10 bits. 
+fix: added mask and mapped correctly. 
+
+FILESYSTEM:
+symptom: calling "cat verylarge..." would print the correct content but also frame0.txt data directly afterward
+error: read data function would not stop at the end of file only the end of nbytes argument
+fix: adjusted the conditions to assure data_read completion at end of file
+difficulty: 30 min

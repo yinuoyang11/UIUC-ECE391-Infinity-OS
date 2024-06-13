@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "types.h": "c",
+        "lib.h": "c",
+        "i8259.h": "c",
+        "vga_modex.h": "c",
+        "system_call.h": "c"
+    }
+}

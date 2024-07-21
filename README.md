@@ -2,6 +2,7 @@
 <img width="300" alt="Infinity OS animation" src="https://github.com/user-attachments/assets/4a42e20a-9763-45d8-b73b-1abbbf96093e">
 <img src="https://github.com/user-attachments/assets/b3dde530-194b-4e64-a1df-0d9bd4e87cfc" alt="Infinity OS Logo" width="300"/>
 <img src="https://github.com/user-attachments/assets/1c454a51-0940-4962-8326-8bbf834d041e" alt="Infinity OS terminal" width="300"/>
+<img src="https://github.com/user-attachments/assets/5921c9f4-a75a-4571-8ff5-e994f65130b1" alt="Infinity OS terminal" width="300"/>
 
 UIUC ECE391 SP24 | January 2024 ~ May 2024
 

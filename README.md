@@ -1,3 +1,64 @@
+# **Infinity OS: A Unix-like OS for x86**
+<img width="450" alt="Infinity OS animation" src="https://github.com/user-attachments/assets/4a42e20a-9763-45d8-b73b-1abbbf96093e">
+<img src="https://github.com/user-attachments/assets/b3dde530-194b-4e64-a1df-0d9bd4e87cfc" alt="Infinity OS Logo" width="450"/>
+<img src="https://github.com/user-attachments/assets/1c454a51-0940-4962-8326-8bbf834d041e" alt="Infinity OS terminal" width="450"/>
+<image src="https://github.com/user-attachments/assets/a37a1ee0-65d5-4fdf-8b63-8f2ffd4cb4ed" alt="Infinity OS files" width="450"/>
+
+UIUC ECE391 SP24 | January 2024 ~ May 2024
+
+Authors： *Yinuo Yang, Yunyi Lin, Xingru Lu, Jameson Koonce*
+
+## **Achievements**
+Our Infinity OS won second place in the ECE391 design competition in Spring 2024! 🥈
+
+## File Contents
+Infinity OS consists of five checkpoints and one extra credit part. 
+### **Checkpoint1**
+| File | Content |
+| --- | --- |
+| `boot.S` | Booting operating system |
+| `i8259.c` | Initialize PIC |
+| `idt_linkage.S` | Setup assembly linkage for interrupt descriptor table |
+| `idt.c` | Initialize interrupt descriptor table |
+| `keyboard.c` | Keyboard driver for Infinity OS |
+| `rtc.c` | RTC driver for Infinity OS |
+| `page.c`| Initializing paging between user and kernel |
+
+
+### **Checkpoint 2**
+| File | Content |
+| --- | --- |
+| `keyboard.c` | Improving keyboard driver |
+| `terminal.c` | Terminal driver for Infinity OS |
+| `filesystem.c` | A ext3 liked filesystem |
+
+### **Checkpoint 3**
+| File | Content |
+| --- | --- |
+| `filesystem.c` | Improving filesystem |
+| `system_call.c` | General system calls for user to interact with kernel. Including `execute()`, `halt()`, etc. |
+
+### **Checkpoint 4**
+| File | Content |
+| --- | --- |
+| `system_call.c` | Adding new system calls like `vidmap`, `getargs` |
+
+### **Checkpoint 5**
+| File | Content |
+| --- | --- |
+| `terminal.c` | Extending to support three terminals |
+| `scheduler.c` | Creating a Round-Robin scheduler for the three terminals |
+| `pit.c` | PIT interrupt handler that calls `scheduler()` at fixed time intervals |
+
+### **Extra Credit**
+| File | Content |
+| --- | --- |
+| `vga_modex.c` | Provides two VGA modes: `text_mode` and `graphic_mode`, and methods to switch between these two modes. `text_mode` is for the terminal and `graphic_mode` is for the GUI. |
+| `speaker.c` | Initializing music player |
+| `signal.c` | Enable basic user signals like `STOP` and `INTERRUPT` |
+| `mouse.c` | Enable two mouse modes: one for VGA `text_mode` and one for VGA `graphic_mode` with a mouse icon |
+| `filesystem.c` | Enable extra system calls like `touch` and `snano`, which can create new files and write to them in memory |
+
 ACADEMIC INTEGRITY
 -----
 Please review the University of Illinois Student Code before starting,
